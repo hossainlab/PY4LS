@@ -2,6 +2,37 @@
 title: "Python for Research"
 ---
 
-This is the class site for Python for Research at Department of Microbiology, Jagannath University. The course title is *"Python for Research(PY4R)."*
+This is the class site for Python for Research at Department of Microbiology, Jagannath University. The course title is “Python for Research(PY4R).”
 
-![](./img/home.png)
+- [Lab 00: Introduce Yourself](00-install_name_plot.html)
+- [Lab 01: Nathan's Hot Dog Eating Context](01-eda_hot_dogs.html)
+    - [Slides](slides/01-slides.html)
+    - Dataset 1: [http://bit.ly/cs631-hotdog](http://bit.ly/cs631-hotdog)
+    - Dataset 2: [http://bit.ly/cs631-hotdog-affiliated](http://bit.ly/cs631-hotdog-affiliated)
+    - Addendum: [01-addendum.html](01-addendum.html)
+- [Lab 02: MoMA Museum Tour](02-moma.html)
+    - [Slides](slides/02-slides.html)
+    - Dataset: [http://bit.ly/cs631-moma](http://bit.ly/cs631-moma)
+    - Dataset Cleaning *(optional)*: [02a-moma-cleaning.html](02a-moma-cleaning.html) 
+    - Addendum: [02-addendum.html](02-addendum.html)
+- [Lab 03: Colors with Animal Sounds](03-colors.html)
+    - [Slides](slides/03-slides.html)
+    - Dataset: [http://bit.ly/cs631-meow](http://bit.ly/cs631-meow)
+    - Dataset Cleaning *(optional)*: [03a-meow-cleaning.html](03a-meow-cleaning.html) 
+- [Lab 04: Tidy Data + Distributions](04-challenge.html)
+    - [Slides](slides/04-slides.html)
+    - [Reference lab](04-distributions.html)
+- [Lab 05: Fonts & Tables](05-tables.html)
+    - The actual in-class lab focused on "Take a sad plot & make it better"
+- Lab 06: The Tada!-verse
+    - [Slides on `xaringan`](slides/06-slides_xaringan.html)
+    - [Slides on `blogdown`](slides/06-slides_blogdown.html)
+- Lab 07: Making a Shareable Site
+    - [Pre-work slides](slides/07-prework-slides_blogdown.html)
+    - [In-class slides](slides/07-slides_blogdown.html)
+- Lab 11: One Dataset, Visualized 11 Ways
+    - [Slides](slides/11-slides.html)
+- Lab 12: Wrap-up
+    - [Slides](slides/12-slides.html)
+    
+
