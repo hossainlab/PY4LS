@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
 <title>Syllabus</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -28,12 +38,16 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -46,37 +60,10 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
-</head>
 
-<body>
+
 
 <style type = "text/css">
 .main-container {
@@ -84,13 +71,8 @@ h6 {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -101,44 +83,56 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
+.dropdown-submenu {
+  position: relative;
 }
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
 }
-
-.section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
 }
-.section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
 }
-.section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
 }
-.section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu.pull-left {
+  float: none;
 }
-.section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -149,15 +143,25 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
-
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -167,7 +171,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -203,6 +206,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -215,48 +219,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -270,6 +235,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -305,8 +276,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -316,8 +285,18 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -336,7 +315,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">CONJ 620</a>
+      <a class="navbar-brand" href="index.html">PY4R</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -396,12 +375,12 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">Syllabus</h1>
-<h3 class="subtitle"><em>Introduction to Biostatistics for the Basic Sciences</em></h3>
+<h3 class="subtitle">Introduction to Biostatistics for the Basic Sciences</h3>
 
 </div>
 
@@ -450,38 +429,38 @@ div.tocify {
 <li><a href="http://www.ohsu.edu/xd/education/student-services/registrar/">Registrar’s Office</a>
 <ul>
 <li>Mackenzie Hall, Rm. 1120</li>
-<li>503-494-7800; <a href="mailto:regohsu@ohsu.edu">regohsu@ohsu.edu</a></li>
+<li>503-494-7800; <a href="mailto:regohsu@ohsu.edu" class="email">regohsu@ohsu.edu</a></li>
 </ul></li>
 <li>OHSU ITG Help Desk
 <ul>
-<li>Sakai Course Management System, please contact the TLC Help Desk at 877-972-5249 or email 503-494-2222; <a href="mailto:sakai@ohsu.edu">sakai@ohsu.edu</a></li>
+<li>Sakai Course Management System, please contact the TLC Help Desk at 877-972-5249 or email 503-494-2222; <a href="mailto:sakai@ohsu.edu" class="email">sakai@ohsu.edu</a></li>
 </ul></li>
 <li><a href="http://www.ohsu.edu/xd/education/student-services/financial-aid/contact.cfm">Office of Student Financial Aid</a>
 <ul>
 <li>Mackenzie Hall, Rm. 1120</li>
-<li>503-494-7800 or 800-775-5460 – Option 2; <a href="mailto:finaid@ohsu.edu">finaid@ohsu.edu</a></li>
+<li>503-494-7800 or 800-775-5460 – Option 2; <a href="mailto:finaid@ohsu.edu" class="email">finaid@ohsu.edu</a></li>
 </ul></li>
 <li><a href="http://www.ohsu.edu/xd/education/student-services/bursar/services/cashier-office.cfm">Cashiers Office</a>
 <ul>
 <li>Marquam Plaza; 2525 SW Third Ave</li>
-<li>503-494-8243; <a href="mailto:cashiers@ohsu.edu">cashiers@ohsu.edu</a></li>
+<li>503-494-8243; <a href="mailto:cashiers@ohsu.edu" class="email">cashiers@ohsu.edu</a></li>
 </ul></li>
 <li><a href="http://www.ohsu.edu/xd/about/services/public-safety/">Office of Public Safety</a>
 <ul>
 <li>Emergency on Campus: 503-494-4444</li>
-<li>Non-emergency: 503-494-7744; <a href="mailto:pubsafe@ohsu.edu">pubsafe@ohsu.edu</a></li>
+<li>Non-emergency: 503-494-7744; <a href="mailto:pubsafe@ohsu.edu" class="email">pubsafe@ohsu.edu</a></li>
 </ul></li>
 <li><a href="http://www.ohsu.edu/xd/education/student-services/joseph-trainer-health-wellness-center/form-policies-resources.cfm">Joseph B. Trainer Health &amp; Wellness Center</a>
 <ul>
 <li>Baird Hall, Rm. 18 (Primary Care) and Rm. 6 (Behavioral Health)</li>
 <li>503-494-8665; For urgent care after hours, 503-494-8311 and ask for the Nurse on call.</li>
-<li><a href="mailto:askjbthealth@ohsu.edu">askjbthealth@ohsu.edu</a></li>
+<li><a href="mailto:askjbthealth@ohsu.edu" class="email">askjbthealth@ohsu.edu</a></li>
 </ul></li>
 <li>Ombudsman Office
 <ul>
 <li>Gaines Hall, Rm. 117</li>
 <li>707 SW Gaines Street, Portland, OR 97239</li>
-<li>503-494-5397; <a href="mailto:graybill@ohsu.edu">graybill@ohsu.edu</a></li>
+<li>503-494-5397; <a href="mailto:graybill@ohsu.edu" class="email">graybill@ohsu.edu</a></li>
 </ul></li>
 <li><a href="http://www.ohsu.edu/xd/education/library/">Library</a>
 <ul>
@@ -497,11 +476,11 @@ div.tocify {
 </div>
 <div id="statement-regarding-students-with-disabilities" class="section level2">
 <h2>Statement Regarding Students with Disabilities</h2>
-<p>OHSU is committed to inclusive and accessible learning environments in compliance with federal and state law. If you have a disability or think you may have a disability (mental health, attention-related, learning, vision, hearing, physical or health impacts) contact the Office for Student Access at (503) 494-0082 or <a href="mailto:studentaccess@ohsu.edu">studentaccess@ohsu.edu</a> to have a confidential conversation about academic accommodations. Information is also available at www.ohsu.edu/student-access. Because accommodations may take time to implement and cannot be applied retroactively, it is important to have this discussion as soon as possible.</p>
+<p>OHSU is committed to inclusive and accessible learning environments in compliance with federal and state law. If you have a disability or think you may have a disability (mental health, attention-related, learning, vision, hearing, physical or health impacts) contact the Office for Student Access at (503) 494-0082 or <a href="mailto:studentaccess@ohsu.edu" class="email">studentaccess@ohsu.edu</a> to have a confidential conversation about academic accommodations. Information is also available at www.ohsu.edu/student-access. Because accommodations may take time to implement and cannot be applied retroactively, it is important to have this discussion as soon as possible.</p>
 </div>
 <div id="student-evaluation-of-teaching" class="section level2">
 <h2>Student Evaluation of Teaching</h2>
-<p>Course evaluation results are extremely important and used to help improve courses and the learning experience of future students. Responses will always remain anonymous and will only be available to instructors after grades have been posted. The results of scaled questions and comments go to both the instructor and their unit head/supervisor. Refer to Student Evaluation of Teaching, Policy No. 02-50-035.</p>
+<p>Course evaluation results are extremely important and used to help improve courses and the learning experience of future students. Responses will always remain anonymous and will only be available to instructors after grades have been posted. The results of scaled questions and comments go to both the instructor and their unit head/supervisor. Refer to Student Evaluation of Teaching, Policy No. 02-50-035.</p>
 </div>
 <div id="copyright-information" class="section level2">
 <h2>Copyright Information</h2>
@@ -518,7 +497,7 @@ div.tocify {
 </div>
 <div id="commitment-to-diversity-inclusion" class="section level2">
 <h2>Commitment to Diversity &amp; Inclusion</h2>
-<p>OHSU is committed to creating and fostering a learning and working environment based on open communication and mutual respect. If you encounter sexual harassment, sexual misconduct, sexual assault, or discrimination based on race, color, religion, age, national origin, veteran’s status, ancestry, sex, marital status, pregnancy or parenting status, sexual orientation, gender identity, disability or any other protected status please contact the Affirmative Action and Equal Opportunity Department at 503-494-5148 or <a href="mailto:aaeo@ohsu.edu">aaeo@ohsu.edu</a>. Inquiries about Title IX compliance or sex/gender discrimination and harassment may be directed to the OHSU Title IX Coordinator at 503-494-0258 or <a href="mailto:titleix@ohsu.edu">titleix@ohsu.edu</a>.</p>
+<p>OHSU is committed to creating and fostering a learning and working environment based on open communication and mutual respect. If you encounter sexual harassment, sexual misconduct, sexual assault, or discrimination based on race, color, religion, age, national origin, veteran’s status, ancestry, sex, marital status, pregnancy or parenting status, sexual orientation, gender identity, disability or any other protected status please contact the Affirmative Action and Equal Opportunity Department at 503-494-5148 or <a href="mailto:aaeo@ohsu.edu" class="email">aaeo@ohsu.edu</a>. Inquiries about Title IX compliance or sex/gender discrimination and harassment may be directed to the OHSU Title IX Coordinator at 503-494-0258 or <a href="mailto:titleix@ohsu.edu" class="email">titleix@ohsu.edu</a>.</p>
 </div>
 <div id="modified-operations-policy-01-40-010" class="section level2">
 <h2>Modified Operations, Policy 01-40-010</h2>
@@ -540,13 +519,59 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
