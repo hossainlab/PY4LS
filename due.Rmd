@@ -1,0 +1,58 @@
+---
+title: "What is Due & When?"
+author: "Alison Hill"
+subtitle: Summer 2018
+---
+
+You are expected to come to each class meeting prepared, which means that you will have done the readings and the DataCamp assignments that are due for that date *before* coming to class. 
+
+## Readings
+
+Readings will primarily be from two free, open-source, completely online textbooks:
+
+1. [**MODERN DIVE into Data with R (MD)**](http://moderndive.netlify.com) 
+1. [**R for Data Science (R4DS)**](http://r4ds.had.co.nz) 
+
+These books will be supplemented by blog posts, YouTube videos, and several open-access articles, including from:
+
+- A special PEERJ issue called ["Practical Data Science for Stats"](https://peerj.com/collections/50-practicaldatascistats/), and
+- [Nature: Points of Significance](https://www.nature.com/collections/qghhqm/pointsofsignificance)
+
+## DataCamp
+
+Be sure to check the **DataCamp** link above for more details on the DataCamp (DC) assignments.  
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(knitr)
+library(DT)
+due <- read_csv("due.csv") %>%
+  mutate(Date = paste(Month, Day)) %>%
+  mutate(`DataCamp Due` = ifelse(material == "-" | grepl("Quiz", material) | is.na(material_link),
+    material,
+    paste0("<a href='", material_link, "'>", material, "</a>"))) %>% 
+  mutate(`Lab Due` = ifelse(ps == "-" | is.na(ps) | is.na(ps_link),
+    ps,
+    paste0("<a href='", ps_link, "'>", ps, "</a>"))) %>% 
+  mutate(big_lab_due = ifelse(big_lab == "-" | is.na(big_lab) | is.na(big_lab_link),
+    big_lab,
+    paste0("<a href='", big_lab_link, "'>", big_lab, "</a>"))) %>% 
+  select(Weekday, Date, `CM / Block`, `Readings Due` = Reading, 
+         `DataCamp Due`, `Lab Due`, `Integrative Lab Due` = big_lab_due)
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+if(knitr:::is_html_output()){
+  due %>% 
+    datatable(rownames = FALSE,
+              class = 'cell-border stripe',
+              filter = list(position = 'top'),
+              options = list(pageLength = nrow(due), 
+                             autoWidth = TRUE,
+                             bInfo = FALSE,
+                             paging = FALSE),
+              escape = FALSE)
+} else {
+  knitr::kable(due, booktabs = TRUE, longtable = TRUE)
+}
+```

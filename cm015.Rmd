@@ -1,0 +1,55 @@
+---
+title: "CONJ620: CM 1.5"
+subtitle: "Data Tables & Tidy Data"
+author: "Alison Hill"
+date: "7/10/2018"
+output: html_document
+---
+## Overview
+
+A complete knitted `html` file is due on Sakai by beginning of class Thursday July 12th (2:30pm).
+
+*Problem:* You have data in one “shape” but you wish it were in another. Usually this is because the alternative shape is superior for presenting a table, making a figure, or doing aggregation and statistical analysis.
+
+*Solution:* Reshape your data. For simple reshaping, `gather()` and `spread()` from `tidyr` will suffice, as covered in [ModernDive Chapter 4](http://moderndive.netlify.com/4-tidy.html). Do the thing that it possible / easier now that your data has a new shape.
+
+## Part 1
+
+Make a tibble with one row per year and columns for maternal mortality for two or more countries.
+
+- Use `knitr::kable()` to make this table look pretty in your rendered homework.
+- Take advantage of this new data shape to scatterplot maternal mortality for one country against that of another.
+- Try adding another geometric layer using `geom_text()`, adding `label = year` to your aesthetics call.
+
+
+## Part 2
+
+Compute some measure of maternal mortality (`mean`? `median`? `min`? `max`?) for all possible combinations of continent and year. Reshape that to have one row per year and one variable for each continent. Or the other way around: one row per continent and one variable per year.
+
+- Use `knitr::kable()` to make these tables look pretty in your rendered homework.
+- Is there a plot that is easier to make with the data in this shape versus the usual form? If so (or you think so), try it! Reflect.
+
+## If this was all easy for you (optional)
+
+Join the `reprohealth` data with the `gapminder` data using a dplyr join function and make some observations about the process and result. Explore the different types of joins. You could also create a second data frame to read in locally, then join with `reprohealth`. Examples of a second data frame you could build:
+
+- One row per country, a country variable and one or more variables with extra info, such as language spoken, NATO membership, national animal, [happiness ratings](https://www.kaggle.com/unsdsn/world-happiness), [Olympic medals](https://www.kaggle.com/the-guardian/olympic-games), [human development index](http://hdr.undp.org/en/data), [price of a Big Mac](https://github.com/TheEconomist/big-mac-data), or [maternity leave policies](http://www.oecd.org/gender/data/length-of-maternity-leave-parental-leave-and-paid-father-specific-leave.htm).
+- One row per continent, a continent variable and one or more variables with extra info, such as northern versus southern hemisphere.
+
+## Report your process
+
+You’re encouraged to reflect on what was hard/easy, problems you solved, helpful tutorials you read, etc. Give credit to your sources, whether it’s a blog post, a fellow student, an online tutorial, etc.
+
+## Grading
+
+__Our general grading guidelines__
+
+_Check minus:_ Didn't tackle both parts. Or only did tables not plots, or vice versa. Or didn't interpret anything but left it all to the "reader". Or more than one technical problem that is relatively easy to fix. It's hard to find the analyst or the narrative in all this R output.
+
+_Check:_ Hits all the elements in both sections. No obvious mistakes. Pleasant to read. No head scratchers. Solid and complete.
+
+_Check plus:_ Exceeded the requirements in more than one section. Or developed novel ways to do things or ways of looking at a task that were indeed interesting and "worked". Impressive use and clear understanding of both what went into R in terms of code and what R spit back out. Impeccable organization and presentation in the report.
+
+
+
+This lab was adapted from [Jenny Bryan's STAT545 class](http://stat545.com/hw04_tidy-data-joins.html).

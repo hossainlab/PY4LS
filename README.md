@@ -1,2 +1,2 @@
-# PY4R
-Python for Research
+# ohsu-basic-stats
+Introduction to Biostatistics for the Basic Sciences (Data Wrangling, Analysis, &amp; Communication)

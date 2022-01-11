@@ -1,0 +1,223 @@
+---
+title: "CONJ620: CM 1.6"
+subtitle: "Integrative Lab"
+author: "Alison Hill"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+# leave this chunk alone
+options(knitr.table.format = "html") 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+  comment = NA, dpi = 300)
+library(reprohealth)
+library(tidyverse)
+wb_stats <- wb_reprohealth %>%
+  mutate(year = parse_number(year)) 
+```
+## Overview
+
+A complete knitted `html` file is due on Sakai by beginning of class Tuesday July 17th (2:30pm). In class on that Tuesday, you'll pair up with another student and review each others' reports. Your final lab is due on Sakai by beginning of class Thursday July 19th (2:30pm). 
+
+The goal is to carefully, thoroughly, and thoughtfully conduct an exploratory data analysis (EDA). You are also asked to communicate clearly about the steps in your EDA process with others, by sharing your R code, output, and narrative. As such, your code cannot "stand alone"- it is meant to complement / enhance / support your narrative. 
+
+## Tools
+
+You will use R Markdown to construct your EDA. You'll submit your work as an html file knit from your `.Rmd` file (please leave the default code chunk options for `eval = TRUE` and `echo = TRUE`). In that document, you'll use `dplyr`, `tidyr`, and `ggplot2` to do description and visualization. You may also wish to use the `janitor` package to make `tabyl`s, and some of the accompanying `adorn` functions.
+
+Your lab should serve as your own personal cheatsheet in the future for things to do with a new dataset. Give yourself the cheatsheet you deserve! Remember:
+
+- `rmarkdown` should be your EDA *documentation* tool
+- your own words with `markdown` formatting are your ONLY *narrative* tool
+- `dplyr` should be your *data manipulation* tool
+- `tidyr` should be your *data reshaping* tool
+- `janitor::tabyl` should be your *data table-making* tool
+  - you may wish to combine with `knitr::kable()` for formatting tables
+- `ggplot2` should be your *data visualization* tool
+
+
+For all things, graphical and tabular, if you’re dissatisfied with a result, discuss the problem, what you’ve tried and move on (remember my 30-minute rule). You'll need this loaded at the top:
+
+```{r warning = FALSE, message = FALSE}
+library(tidyverse) # all the good stuff
+library(readxl) # for reading in xlsx files
+library(here) # for here!
+library(janitor) # for clean_names & tabyl
+library(knitr) # for kable
+```
+
+The `tidyverse` meta-package includes `dplyr`, `ggplot2`, and `tidyr`.
+
+## Data
+
+You will start with the `reprohealth` dataset, which is distributed as an R package from [my personal GitHub](https://cran.r-project.org/web/packages/gapminder/index.html). 
+
+Install it, and remember to use this code only in your R console, not in a script or .Rmd file:
+
+``` r
+install.packages("remotes") # install the remotes package
+library(remotes) # load remotes package so you can install from github
+install_github("apreshill/reprohealth") # install the package
+```
+
+Then at the top of your lab, copy and paste this code:
+
+``` r
+library(reprohealth) # load the package
+wb_reprohealth # call the data
+wb_stats <- wb_reprohealth %>% # save the data to your local environment
+  mutate(year = parse_number(year)) # fix year
+```
+
+You can name `wb_stats` anything else you want, this is just an example.
+
+
+## Explore the `wb_reprohealth` data
+
+Yes, this was [Lab 04](cm014.html). You should already have the code and narrative to answer these questions. Use this opportunity to **clean that up**. This section should be clear, concise, and well-organized, since you already have the code and words in another .Rmd document that you can just copy/paste into this lab (right?). Can you make it better? Do a self-assessment here: what could be clearer about your code or your process that you can improve upon now?
+
+- How many variables/columns?
+- How many rows/observations?
+- Which variables are numbers?
+- Which are categorical variables (numeric or character variables with variables that have a fixed and known set of possible values; aka [factor](https://stats.idre.ucla.edu/r/modules/factor-variables/) variables)?
+- Complete this sentence: "There is one row per..."
+
+## Explore a new dataset
+
+Go to the [gapminder](https://www.gapminder.org/data/) site and find a new indicator that interests you. 
+
+- Download the data file to a folder in your `.Rproj` directory, and open the `.xlsx` file to see where the data is (i.e., which sheet).
+
+- Read the data file into your EDA .Rmd document using the [`readxl` package](https://readxl.tidyverse.org) (remember, it must be installed first). Use the `here` package, with the `here` function, to build up the relative file path ([example code-through](https://github.com/jennybc/here_here)). Here is an example code chunk:
+
+```{r}
+internet <- read_xlsx(here::here("data", "Internet user per 100.xlsx"),
+                      sheet = 1) %>% 
+  clean_names() # highly recommended
+
+internet
+```
+
+- Answer the same 5 questions as you did above for the `reprohealth` data.
+- Gather the data (most data from gapminder has columns in years).
+```{r}
+internet_tidy <- internet %>%
+  rename(country = 1) %>% 
+  gather(year, users_per_100, -country) %>% 
+  mutate(year = readr::parse_number(year)) 
+```
+
+```{r}
+# another example dataset
+age_marriage <- read_xlsx(here::here("data", "indicator age of marriage.xlsx"),
+                      sheet = 1) 
+
+age_marriage
+
+marriage_tidy <- age_marriage %>% 
+  rename(country = 1) %>% 
+  gather(year, age_first_marriage, -country) %>% 
+  mutate(year = readr::parse_number(year))
+marriage_tidy
+```
+
+Pathological in the same way as the previous...
+
+```{r}
+# yet another example dataset
+alcohol <- read_xlsx(here::here("data", "indicator alcohol consumption  20100830.xlsx"),
+                      sheet = 1) 
+
+alcohol
+
+alc_tidy <- alcohol %>% 
+  rename(country = 1) %>% 
+  gather(year, alc_per_adult, -country) %>% 
+  mutate(year = readr::parse_number(year))
+alc_tidy
+```
+
+- Join this new data using `dplyr` with the `reprohealth` data you have been working with, and make some observations about the process and result. You may need:
+    - [ModernDive section you read on joins](http://moderndive.netlify.com/5-wrangling.html#joins)
+    - This [tutorial by Jenny Bryan](http://stat545.com/bit001_dplyr-cheatsheet.html)
+    - This [chapter in R4DS](http://r4ds.had.co.nz/relational-data.html)
+    - **Hint!:** you'll probably need to use `tidyr::gather` on your new dataset first, before the join. Tread carefully here! 
+    - Remember, if you’re dissatisfied with a result, discuss the problem, what you’ve tried and move on (remember my 30-minute rule).
+
+```{r}
+# let's do this
+int_repro <- wb_stats %>% 
+  left_join(internet_tidy)
+agem_repro <- wb_stats %>% 
+  left_join(marriage_tidy)
+alc_repro <- wb_stats %>% 
+  left_join(alc_tidy)
+```
+
+
+
+
+## Explore questions
+
+In the [R4DS Exploratory Data Analysis chapter](http://r4ds.had.co.nz/exploratory-data-analysis.html), the authors
+say:
+
+> "Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use questions as tools to guide your investigation...EDA is fundamentally a creative process. And like most creative processes, the key to asking quality questions is to generate a large quantity of questions."
+
+Your mission in this last section is to pick at least three of the tasks below and attack each with a **table and figure**. In your narrative, reword each "task" into a logical research question(s). Make observations about what your tables/figures show and about the process. If you want to do something comparable but different, i.e. swap one quantitative variable for another, be our guest! If you are feeling inspired and curious, then we’re doing this right. Go for it. 
+
+### Task menu
+
+* Get the maximum and minimum of children per woman (`tot_fertility`) for all continents.
+
+* Look at the spread of children per woman (`tot_fertility`) across countries within the continents.
+
+* Compute a trimmed mean of maternal mortality (`mat_mortality`) for different years. Or a weighted mean, weighting by population. Just try something other than the plain vanilla mean.
+
+* How does maternal mortality (`mat_mortality`) vary across different continents?
+
+* Report the absolute and/or relative abundance of countries with low maternal mortality (`mat_mortality`) over time by continent: Compute some measure of worldwide maternal mortality - you decide - a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a maternal mortality rate less than this benchmark, for each year.
+
+* Find countries with interesting stories. Open-ended and, therefore, hard. Promising but unsuccessful attempts are encouraged. This will generate interesting questions to follow up on in class.
+
+* Make up your own! Between the coverage in class, readings, and DataCamp plus the list above, you get the idea.
+
+### Companion graphs
+
+For each table, make sure to include a relevant figure. One tip for starting is to draw out on paper what you want your x- and y-axis to be first and what your `geom` is; that is, start by drawing the plot you want `ggplot` to give you. 
+
+Your figure does not have to depict every last number from the data aggregation result. Use your judgement. It just needs to complement the table, add context, and allow for some sanity checking both ways.
+
+Notice which figures are easy/hard to make, which data formats make better inputs for plotting functions vs. for human-friendly tables.
+
+
+## Report your process
+
+You’re encouraged to reflect on what was hard/easy, problems you solved, helpful tutorials you read, etc. Give credit to your sources, whether it’s a blog post, a fellow student, an online tutorial, etc.
+
+## Grading
+
+This lab is worth 5 points total, scored as follows:
+
+2 points for your initial EDA:
+
+- 2 (Strong attempt): EDA reflects strong independent problem solving, with clearly thought out attempts to approach questions and problems, and a diligent and honest effort to answer questions and find the solutions.
+
+- 1 (Adequate attempt): EDA reflects some attempt to approach the posed tasks, but approach appears to be superficial and lacks depth of analysis. No obvious mistakes. Pleasant to read. No head scratchers. Solid and complete.
+
+- 0 (No attempt or incomplete): Didn't tackle all sections. Or didn't make companion graphs. Or didn't interpret anything but left it all to the "reader". Or more than one technical problem that is relatively easy to fix.
+
+
+3 points for the quality of the final EDA:
+
+- 3 (Exceptional): EDA is thorough, concise, and clearly demonstrates ability to competently and thoughtfully work with data as well as how to report on that process as a complement to code. Impeccable organization and presentation in the report.
+
+- 2 (Adequate): Hits all the elements in all sections. No obvious mistakes. Pleasant to read. No head scratchers. Solid and complete.
+
+- 1 (Inadequate): EDA attempts to address question with substantial inaccuracies in analysis and/or interpretation. Didn't tackle all sections. Or didn't make companion graphs. Or didn't interpret anything but left it all to the "reader". Or more than one technical problem that is relatively easy to fix.
+
+- 0 (Insufficient): Nothing to grade, assignment was late.
+    

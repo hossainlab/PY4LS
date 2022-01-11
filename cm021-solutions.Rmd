@@ -1,0 +1,136 @@
+---
+title: "CONJ620: CM 2.1 SOLUTIONS"
+subtitle: "Simple linear regression"
+author: "Alison Hill"
+date: "7/17/2018"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+
+```{r setup, include=FALSE}
+# leave this chunk alone
+options(knitr.table.format = "html") 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+  comment = NA, dpi = 300, include = TRUE) # include = TRUE only thing I changed
+```
+
+
+# Overview
+
+- A complete knitted `html` file is due on Sakai by end of class Tuesday July 17th (before 5pm). 
+- This lab is estimated to take approximately 45 minutes. We'll work together in chunks to keep tabs on time, with the aim that we all *finish* during the in-class work period. 
+- This lab is based on [Chapter 6: Basic Regression in ModernDive](http://moderndive.netlify.com/6-regression.html). Please open it and follow closely!
+- You'll need to load these packages to do the lab (make sure they are installed first, not in your .Rmd file!):
+```{r load_packages, include = TRUE}
+library(moderndive)
+library(tidyverse)
+library(skimr)
+```
+
+# The data
+
+Source: John Clay (1856). "On the Relation Between Crime, Popular
+Instruction, Attendance on Religious Worship, and Beer-Houses",
+Journal of the Statistical Society of London, Vol. 20 #1, pp 22-32.
+
+In 1856, the Reverend John Clay felt that it was high time to figure out what societal factors were playing a role in the incidence of criminal behavior in Britain. He stated that:
+
+> "It is a mere truism to say that the progress of popular education, and the formation of religious habits, are fatally opposed by the temptations to animal pleasures, which abound wherever BEER-HOUSES and low ALE-HOUSES abound."
+
+![](http://4.bp.blogspot.com/-qdzqtghTzmU/UD_NNT9C46I/AAAAAAAABoQ/XycEe4wixVM/s1600/03.LesMiserables.US.MasteroftheHouse.jpg)
+
+<br>
+<br>
+<br>
+
+Clearly, the reverend considered public houses in Britain to be a scourge on society, namely that they "promote drunkenness and its consequent evil" (i.e., crime). Let's investigate how well we can predict criminals (per 100k population) from the number of public houses (ale/beer houses per 100k population) using simple linear regression. Here is how to read in the data (please copy and paste into a code chunk in your .Rmd):
+
+
+
+```{r crime_data, include = TRUE}
+crimenames <- c("county", "region_name", "region_code",
+               "criminals", "public_houses", "school_attendance",
+               "worship_attendance")
+
+crime <- read_table(here::here("data", "beerhall.dat"),
+                    col_names = crimenames)
+```
+
+
+
+# Basics (⏰ 10 min)
+
+Note: you don't need to use R to answer these questions, but please create a section header using markdown format (`# Basics`) and type your answers there.
+
+- What is the dependent variable? `criminals`
+- What is the independent variable? `public_houses`
+- Copy and paste the provided equation that starts/ends with `$$` into your narrative (not an R code chunk), and replace `y` and `x` in this formula with meaningful variable names (you may wish to reference the `crimenames` object we made above): `$$\hat{y} = b_0 + b_1{x}$$`
+$$\hat{\textrm{criminals}} = b_0 + b_1{\textrm{public_houses}}$$
+
+- The “best-fitting” regression line is “best” in that it minimizes what?
+    - Make sure you read [this](http://moderndive.netlify.com/6-regression.html#leastsquares)
+  
+> The best-fitting regression is one that minimizes the sum of the squared residuals. Squared residuals are calculated by taking the difference between the observed y values (here, criminals) and the fitted or predicted y values (so y hat!), then squaring each of those differences. The differences are squared so that positive and negative deviations of the same amount are treated equally. 
+
+- Why is this method called "simple linear regression" (as opposed to the method in [Chapter 7](http://moderndive.netlify.com/7-multiple-regression.html))?
+
+> Linear regression refers to the form of the statistical model we are using- in linear regression, our model is in the form of a line, defined by an intercept and slope. The "simple" part refers to the fact that we have only one predictor variable (or independent variable/IV). In multiple regression, we'll have two or more predictor variables or IVs. All of these cases of regression are univariate, as opposed to multivariate. Univariate vs. multivariate refers to the number of dependent variables or DVs. In this case, we just want to predict one variable (here, `criminals`). In this course we will not cover multivariate methods.
+
+
+# EDA
+
+Conduct a [new exploratory data analysis](http://moderndive.netlify.com/6-regression.html#model1EDA), which involves three things:
+
+- Looking at the raw values.
+- Computing summary statistics of the variables of interest.
+- Creating informative visualizations.
+
+## Look at the data (all together)
+
+Use `dplyr` to figure out how many counties are in this dataset, and which variable names map onto the independent and dependent variables you identified above. 
+
+```{r}
+glimpse(crime)
+```
+
+
+## Look at summary statistics (⏰ 5 min)
+
+Use `select` to select only the independent and dependent variables you identified above, then pipe those variables to the `skim` function from the `skimr` package (you should have loaded this package at the top) to see summary statistics for each. Use `dplyr::summarize` to calculate the correlation coefficient. 
+
+```{r}
+crime %>% 
+  select(criminals, public_houses) %>% 
+  skim()
+```
+
+
+```{r}
+crime %>% 
+  summarize(corr = cor(criminals, public_houses))
+```
+
+You might notice that the output from `summarize` is rounded! Nice catch. I found this: https://github.com/tidyverse/dplyr/issues/3336
+
+> "The numbers should be accurate, they're only shown with three significant numbers (rounded)."
+
+## Visualize the data (⏰ 5 min)
+
+
+Recreate the scatterplot below of ale/beer houses per 100K on the x-axis and criminals per 100K population on the y-axis. What can you say about the relationship between public houses and criminals based on this exploration?
+
+
+```{r crime_scatterplot}
+ggplot(crime, aes(x = public_houses, y = criminals)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+> Do this in three sentences: 
+There seems to be a moderately strong relationship. The slope of the regresion line is positive, also the correlation coefficient of `r round(cor(crime$public_houses, crime$criminals),2)` is moderate. Meaning as public houses increase, there is an associated increase in criminal activity.
+
+![](`r knitr::fig_chunk('crime_scatterplot','png')`)
