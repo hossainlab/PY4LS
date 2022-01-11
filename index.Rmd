@@ -4,4 +4,4 @@ title: "Python for Research"
 
 This is the class site for Python for Research at Department of Microbiology, Jagannath University. The course title is *"Python for Research(PY4R)."*
 
-![](http://moderndive.netlify.com/images/flowcharts/flowchart/flowchart.002.png)
+![](./img/home.png)
