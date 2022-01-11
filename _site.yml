@@ -10,9 +10,6 @@ navbar:
   - text: Due Dates
     href: due.html
     icon: fa-calendar-check
-  - text: Grades
-    href: https://distracted-bhabha-a42d09.netlify.com
-    icon: fa-key
   - text: Github 
     href: https://github.com/hossainlab/PY4R
     icon: fa-github
