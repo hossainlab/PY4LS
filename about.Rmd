@@ -10,17 +10,15 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 
 This is an [R Markdown website](http://rmarkdown.rstudio.com/rmarkdown_websites.html). 
-The source can be found [on GitHub <i class="fa fa-github"></i>](https://github.com/apreshill/ohsu-basic-stats).
+The source can be found [on GitHub <i class="fa fa-github"></i>](https://github.com/hossainlab/PY4R).
 
 The rendered site link is:
 
-<https://apreshill.github.io/ohsu-basic-stats/>
+<https://hossainlab.github.io/PY4R/>
 
-More about the instructor, Alison Hill:
+More about the instructor, Jubayer Hossain:
 
-- <i class="fa fa-github"></i> [GitHub](https://github.com/apreshill/)
-- <i class="fa fa-twitter"></i> [Twitter](https://twitter.com/apreshill)
-- <i class="fa fa-home"></i> [Personal Website](https://alison.rbind.io)
-
-I also co-teach (with Drs. Steven Bedrick and Jackie Wirz) "Principles & Practices of Data Visualization". You can view the labs for that class [here](https://apreshill.github.io/data-vis-labs-2018/).
+- <i class="fa fa-github"></i> [GitHub](https://github.com/hossainlab/)
+- <i class="fa fa-twitter"></i> [Twitter](https://twitter.com/Jhossain_28)
+- <i class="fa fa-home"></i> [Personal Website](https://jhossain.com)
 
