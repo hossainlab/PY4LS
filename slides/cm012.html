@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
     <title>CONJ620: CM 1.2</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/ohsu.css" type="text/css" />
     <link rel="stylesheet" href="css/ohsu-fonts.css" type="text/css" />
@@ -164,11 +165,10 @@ slice(heart, 1)
 ```
 
 ```
-# A tibble: 1 x 10
-  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc    gender DR1TFOLA RIAGENDR BMXBMI
-   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1   129.   50.7    48.    48. White non-H… Male       334.       1.   19.7
-# ... with 1 more variable: RIDAGEYR &lt;dbl&gt;
+# A tibble: 1 × 10
+  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc gender DR1TFOLA RIAGENDR BMXBMI RIDAGEYR
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1   129.   50.7     48     48 White no… Male        334        1   19.7       84
 ```
 
 --
@@ -187,11 +187,10 @@ heart %&gt;% slice(1)
 ```
 
 ```
-# A tibble: 1 x 10
-  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc    gender DR1TFOLA RIAGENDR BMXBMI
-   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1   129.   50.7    48.    48. White non-H… Male       334.       1.   19.7
-# ... with 1 more variable: RIDAGEYR &lt;dbl&gt;
+# A tibble: 1 × 10
+  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc gender DR1TFOLA RIAGENDR BMXBMI RIDAGEYR
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1   129.   50.7     48     48 White no… Male        334        1   19.7       84
 ```
 
 --
@@ -211,11 +210,10 @@ slice(filter(heart, gender == "Male"), 1)
 ```
 
 ```
-# A tibble: 1 x 10
-  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc    gender DR1TFOLA RIAGENDR BMXBMI
-   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1   129.   50.7    48.    48. White non-H… Male       334.       1.   19.7
-# ... with 1 more variable: RIDAGEYR &lt;dbl&gt;
+# A tibble: 1 × 10
+  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc gender DR1TFOLA RIAGENDR BMXBMI RIDAGEYR
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1   129.   50.7     48     48 White no… Male        334        1   19.7       84
 ```
 
 --
@@ -230,11 +228,10 @@ heart %&gt;% filter(gender == "Male") %&gt;% slice(1)
 ```
 
 ```
-# A tibble: 1 x 10
-  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc    gender DR1TFOLA RIAGENDR BMXBMI
-   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1   129.   50.7    48.    48. White non-H… Male       334.       1.   19.7
-# ... with 1 more variable: RIDAGEYR &lt;dbl&gt;
+# A tibble: 1 × 10
+  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc gender DR1TFOLA RIAGENDR BMXBMI RIDAGEYR
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1   129.   50.7     48     48 White no… Male        334        1   19.7       84
 ```
 
 
@@ -254,11 +251,10 @@ heart %&gt;% filter(gender == "Male") %&gt;% slice(1)
 ```
 
 ```
-# A tibble: 1 x 10
-  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc    gender DR1TFOLA RIAGENDR BMXBMI
-   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-1   129.   50.7    48.    48. White non-H… Male       334.       1.   19.7
-# ... with 1 more variable: RIDAGEYR &lt;dbl&gt;
+# A tibble: 1 × 10
+  BPXSAR BPXDAR BPXDI1 BPXDI2 race_ethc gender DR1TFOLA RIAGENDR BMXBMI RIDAGEYR
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1   129.   50.7     48     48 White no… Male        334        1   19.7       84
 ```
 
 --
@@ -499,20 +495,20 @@ heart_bp %&gt;%
 ```
 
 ```
-# A tibble: 200 x 3
+# A tibble: 200 × 3
    BPXDI1 BPXDI2  year
     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
- 1    48.    48. 2015.
- 2    76.    78. 2015.
- 3    76.    76. 2015.
- 4    64.    56. 2015.
- 5    54.    56. 2015.
- 6    80.    78. 2015.
- 7    52.    NA  2015.
- 8    NA     80. 2015.
- 9    76.    NA  2015.
-10    90.    80. 2015.
-# ... with 190 more rows
+ 1     48     48  2015
+ 2     76     78  2015
+ 3     76     76  2015
+ 4     64     56  2015
+ 5     54     56  2015
+ 6     80     78  2015
+ 7     52     NA  2015
+ 8     NA     80  2015
+ 9     76     NA  2015
+10     90     80  2015
+# … with 190 more rows
 ```
 
 ---
@@ -534,20 +530,20 @@ heart_bp %&gt;%
 ```
 
 ```
-# A tibble: 200 x 3
+# A tibble: 200 × 3
    BPXDI1 BPXDI2 bp_ratio
     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1    48.    48.    1.00 
- 2    76.    78.    0.974
- 3    76.    76.    1.00 
- 4    64.    56.    1.14 
- 5    54.    56.    0.964
- 6    80.    78.    1.03 
- 7    52.    NA    NA    
- 8    NA     80.   NA    
- 9    76.    NA    NA    
-10    90.    80.    1.12 
-# ... with 190 more rows
+ 1     48     48    1    
+ 2     76     78    0.974
+ 3     76     76    1    
+ 4     64     56    1.14 
+ 5     54     56    0.964
+ 6     80     78    1.03 
+ 7     52     NA   NA    
+ 8     NA     80   NA    
+ 9     76     NA   NA    
+10     90     80    1.12 
+# … with 190 more rows
 ```
 
 ---
@@ -570,20 +566,20 @@ heart_bp %&gt;%
 ```
 
 ```
-# A tibble: 200 x 3
+# A tibble: 200 × 3
    BPXDI1 BPXDI2 bp_ratio
     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1    48.    48.    100. 
- 2    76.    78.     97.4
- 3    76.    76.    100. 
- 4    64.    56.    114. 
- 5    54.    56.     96.4
- 6    80.    78.    103. 
- 7    52.    NA      NA  
- 8    NA     80.     NA  
- 9    76.    NA      NA  
-10    90.    80.    112. 
-# ... with 190 more rows
+ 1     48     48    100  
+ 2     76     78     97.4
+ 3     76     76    100  
+ 4     64     56    114. 
+ 5     54     56     96.4
+ 6     80     78    103. 
+ 7     52     NA     NA  
+ 8     NA     80     NA  
+ 9     76     NA     NA  
+10     90     80    112. 
+# … with 190 more rows
 ```
 
 
@@ -597,6 +593,9 @@ class: middle, inverse
 heart_bp &lt;- heart_bp %&gt;% 
   mutate(bp_ratio = BPXDI1 / BPXDI2)
 ```
+
+https://apreshill.github.io/ohsu-basic-stats/slides/cm012.html#39
+
 
 ---
 class: middle, center, inverse
@@ -728,13 +727,13 @@ all `ggplot2`
 
 
 ```
-# A tibble: 4 x 4
+# A tibble: 4 × 4
   age_yrs systolic_bp bmi_z gender
     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
-1      8.         80.    1. male  
-2      9.         90.    2. male  
-3     10.        100.    3. female
-4     11.        110.    4. female
+1       8          80     1 male  
+2       9          90     2 male  
+3      10         100     3 female
+4      11         110     4 female
 ```
 
 &lt;!-- Copy to chalkboard/whiteboard --&gt;
@@ -831,7 +830,12 @@ class: middle, inverse
 - [RStudio Base R Cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/base-r.pdf)
 
 - [Alison's OHSU Data Jamboree using `ggplot2`](https://alison.rbind.io/talk/code-your-graph/)
+
+
+
+
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "atelier-lakeside-light",
@@ -841,26 +845,111 @@ class: middle, inverse
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
   }
-});
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);

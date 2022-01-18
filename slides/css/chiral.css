@@ -99,7 +99,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 @page { margin: 0; }
 
 .title-slide {
-  background-image: url(OHSU-RGB-4C-POS.png);
+  /* background-image: url(chiral.png); */
   background-position: 95% 95%;
   background-size: 100px;
   background-color: #DEE8F4;
